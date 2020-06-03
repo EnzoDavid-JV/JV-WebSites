@@ -1,0 +1,112 @@
+
+
+#contenedor{
+	background-color:#c3c3c3;
+}
+
+#visor {
+	height:200px;
+	background-image:url(imagenes/foto2.jpg);
+	background-repeat:repeat;
+	background-size:200px;
+	font-family: 'Acme', sans-serif;
+	position: fixed;
+	z-index: 1;
+}
+.cat {
+	background:#fff;
+	margin-top:13rem;
+}
+p {
+	font-size:25px;
+	padding-top: 1rem;
+}
+h3 {
+	cursor:pointer;
+	font-size:25px;
+}
+h3:hover {
+	font-size:30px;
+}
+.cajas {
+	height:100px;
+	cursor:pointer;
+	padding:1% 1%;
+	border-radius: 20px;
+	border: solid 2px #ffffff;
+	
+	
+}
+.numeros {
+    height:90%;
+	padding-top:10px;
+}
+.letras {
+	width:90%;
+	height:90%;
+	
+}
+
+h1 {
+	padding-top:5%;
+}
+#caja1 {
+	background-color:#0d00ff;
+	height:100px;
+	
+}
+#caja2 {
+	background-color:#ff0008;
+	height:100px;
+	
+}
+#caja3 {
+	background-color:#fffb00;
+	height:100px;
+	
+}
+#caja4 {
+	background-color:#1ff207;
+	height:100px;
+	
+}
+#caja5 {
+	background-color:#ffffff;
+	height:100px;
+	
+}
+#caja6 {
+	background-color:#8200fc;
+	height:100px;
+	
+}
+#caja7 {
+	background-color:#000000;
+	height:100px;
+	
+}
+#caja8 {
+	background-color:#ff3686;
+	height:100px;
+	
+}
+#caja9 {
+	background-color:#f56200;
+	height:100px;
+	
+}
+#caja10 {
+	background-color:#632800;
+	height:100px;
+	
+}
+#caja11 {
+	
+	height:100px;
+	
+}
+#caja12 {
+	
+	height:100px;
+	
+}

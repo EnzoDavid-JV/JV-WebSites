@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Juego didactico</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Juego didactico para niños y niñas">
+<link rel="shortcut icon" href="imagenes/logo_jv.png">
+<link href="estilos.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+</style>
+
+<body onload="inicio()"> 
+	<div class="container bg-primary" id="contenedor">
+		<div class="row text-center h-170" id="caja_visor">
+			
+			<div class="col-12 p-3 text-dark" id="visor">
+				<div id="bienvenida" class="pt-3">
+					<h3 onclick="cerrarSaludo()">PRESIONA</br>AQUI</br>PARA COMENZAR</h3>
+				</div>
+				
+				<form class="col-6 col-sm-5 text-center justify-center m-auto" id="cajaForm">
+					<label for="validationDefault" class="col text-dark">Cual es tu nombre?</label>
+					<input type="text" id="nombre" class="form-control col mb-1 text-center" onclick="activarBoton()">
+					<input type="submit" value="Empezar" class="form-control col" id="nickName" onclick="empezar()" disabled="true">
+				</form>
+			</div>
+		</div>
+		<div class="row cat">
+			<button class="col-3 col-6 btn btn-outline-primary" id="botonC" onclick="preguntaColores()" disabled>Colores</button>
+			<button class="col-3 col-6 btn btn-outline-danger" id="botonN" onclick="preguntaNumeros()" disabled>Numeros</button>
+			<button class="col-3 col-6 btn btn-outline-success" id="botonL" onclick="preguntaLetras()" disabled>Letras</button>
+			<button class="col-3 col-6 btn btn-outline-secondary" id="botonF" onclick="preguntaFormas()" disabled>Formas</button>
+		</div>
+	<div id="tabCol" style="display:none;">	
+		<div class="row around">
+			<div class="col-3 cajas" id="caja1" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja2" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja3" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja4" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja5" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja6" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja7" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja8" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja11" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja9" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja10" onclick="validar(this.id)"></div>
+			<div class="col-3 cajas" id="caja12" onclick="validar(this.id)"></div>
+		</div>	
+		</div>
+	<div id="tabNum" style="display:none;">	
+		<div class="row mt-2" >	
+			<div class="col-3 cajas text-center bg-primary" id="1" onclick="validar2(this.id)"><img src="imagenes/numeros/num1.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#1ff207" id="2" onclick="validar2(this.id)"><img src="imagenes/numeros/num2.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#fffb00" id="3" onclick="validar2(this.id)"><img src="imagenes/numeros/num3.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#ff3686;" id="4" onclick="validar2(this.id)"><img src="imagenes/numeros/num4.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#d28fff" id="5" onclick="validar2(this.id)"><img src="imagenes/numeros/num5.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-danger" id="6" onclick="validar2(this.id)"><img src="imagenes/numeros/num6.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-light" id="7" onclick="validar2(this.id)"><img src="imagenes/numeros/num7.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#ffe2c4" id="8" onclick="validar2(this.id)"><img src="imagenes/numeros/num8.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-white" id="caja11" onclick="validar2(this.id)"></div>
+			<div class="col-3 cajas text-center" style="background:#ffa72b" id="9" onclick="validar2(this.id)"><img src="imagenes/numeros/num9.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-success" id="10" onclick="validar2(this.id)"><img src="imagenes/numeros/num10.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-white" id="caja12" onclick="validar2(this.id)"></div>
+		</div>
+	</div>	
+	
+	<div id="tabLet" style="display:none;">	
+		<div class="row mt-2 " >	
+			<div class="col-2 cajas text-center" id="a" onclick="validar3(this.id)"><img src="imagenes/letras/letraA.png" class="letras"></div>
+			<div class="col-2 cajas" style="background:#1ff207" id="b" onclick="validar3(this.id)"><img src="imagenes/letras/letraB.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#fffb00" id="c" onclick="validar3(this.id)"><img src="imagenes/letras/letraC.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#ff3686;" id="d" onclick="validar3(this.id)"><img src="imagenes/letras/letraD.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#d28fff" id="e" onclick="validar3(this.id)"><img src="imagenes/letras/letraE.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-danger" id="f" onclick="validar3(this.id)"><img src="imagenes/letras/letraF.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-light" id="g" onclick="validar3(this.id)"><img src="imagenes/letras/letraG.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#ffe2c4" id="h" onclick="validar3(this.id)"><img src="imagenes/letras/letraH.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-primary" id="i" onclick="validar3(this.id)"><img src="imagenes/letras/letraI.png" class="letras w-50"></div>
+			<div class="col-2 cajas text-center" style="background:#ffa72b" id="J" onclick="validar3(this.id)"><img src="imagenes/letras/letraJ.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-success" id="K" onclick="validar3(this.id)"><img src="imagenes/letras/letraK.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-white" id="L" onclick="validar3(this.id)"><img src="imagenes/letras/letraL.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-primary" id="ll" onclick="validar2(this.id)"><img src="imagenes/letras/letraLL.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#1ff207" id="m" onclick="validar3(this.id)"><img src="imagenes/letras/letraM.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#fffb00" id="n" onclick="validar3(this.id)"><img src="imagenes/letras/letraN.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#ff3686;" id="ñ" onclick="validar3(this.id)"><img src="imagenes/letras/letraÑ.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#d28fff" id="o" onclick="validar3(this.id)"><img src="imagenes/letras/letraO.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-danger" id="p" onclick="validar3(this.id)"><img src="imagenes/letras/letraP.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-light" id="q" onclick="validar3(this.id)"><img src="imagenes/letras/letraQ.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#ffe2c4" id="r" onclick="validar3(this.id)"><img src="imagenes/letras/letraR.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-white" id="s" onclick="validar3(this.id)"><img src="imagenes/letras/letraS.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#ffa72b" id="t" onclick="validar3(this.id)"><img src="imagenes/letras/letraT.png" class="letras"></div>
+			<div class="col-2 cajas text-center bg-success" id="u" onclick="validar3(this.id)"><img src="imagenes/letras/letraU.png" class="letras"></div>
+			<div class="col-2 cajas text-center" style="background:#ffe2c4" id="v" onclick="validar3(this.id)"><img src="imagenes/letras/letraV.png" class="letras"></div>
+			<div class="col-2 cajas bg-" id="w" onclick="validar3(this.id)"><img src="imagenes/letras/letraW.png" class="letras"></div>
+			<div class="col-2 cajas" style="background:#ffa72b" id="x" onclick="validar3(this.id)"><img src="imagenes/letras/letraX.png" class="letras"></div>
+			<div class="col-2 cajas bg-success" id="y" onclick="validar3(this.id)"><img src="imagenes/letras/letraY.png" class="letras"></div>
+			<div class="col-2 cajas bg-white" id="z" onclick="validar3(this.id)"><img src="imagenes/letras/letraZ.png" class="letras"></div>
+		</div>
+	</div>
+	
+	<div id="tabFor" style="display:none;">	
+		<div class="row mt-2" >	
+			<div class="col-3 cajas text-center bg-primary" id="01" onclick="validar4(this.id)"><img src="imagenes/formas/cuadrado.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#1ff207" id="02" onclick="validar4(this.id)"><img src="imagenes/formas/circulo.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#fffb00" id="03" onclick="validar4(this.id)"><img src="imagenes/formas/ovalo.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#ff3686;" id="04" onclick="validar4(this.id)"><img src="imagenes/formas/rectangulo.png" class="numeros md-w-50"></div>
+			<div class="col-3 cajas text-center" style="background:#d28fff" id="05" onclick="validar4(this.id)"><img src="imagenes/formas/triangulo.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-danger" id="06" onclick="validar4(this.id)"><img src="imagenes/formas/corazon.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-light" id="07" onclick="validar4(this.id)"><img src="imagenes/formas/exagono.png" class="numeros"></div>
+			<div class="col-3 cajas text-center" style="background:#ffe2c4" id="08" onclick="validar4(this.id)"><img src="imagenes/formas/estrella.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-dark" id="caja11" onclick="validar4(this.id)"></div>
+			<div class="col-3 cajas text-center" style="background:#ffa72b" id="09" onclick="validar4(this.id)"><img src="imagenes/formas/rombo.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-success" id="10" onclick="validar4(this.id)"><img src="imagenes/formas/pentagono.png" class="numeros"></div>
+			<div class="col-3 cajas text-center bg-dark" id="caja12" onclick="validar4(this.id)"></div>
+		</div>
+	</div>	
+		<footer class="row bg-primary">
+			<div class="col-12 text-center">
+				<h2>Creado por Enzo David</h2>
+			</div>
+				<div class="col-12 text-center">
+					<img src="imagenes/logo_jv.png" class="w-25">
+				</div>
+				
+			<div class="col-12 text-center">
+				<h2>Todos los derechos reservados</h2>
+			</div>
+		</footer>
+	</div>
+<script src="funciones.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</head>
+</html>

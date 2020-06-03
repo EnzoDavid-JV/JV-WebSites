@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?ki6swy');
+  src:  url('fonts/icomoon.eot?ki6swy#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ki6swy') format('truetype'),
+    url('fonts/icomoon.woff?ki6swy') format('woff'),
+    url('fonts/icomoon.svg?ki6swy#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-locked:before {
+  content: "\e906";
+}
+.icon-arrow-with-circle-left:before {
+  content: "\e905";
+}
+.icon-controller-paus:before {
+  content: "\e900";
+}
+.icon-controller-play:before {
+  content: "\e901";
+}
+.icon-controller-stop:before {
+  content: "\e902";
+}
+.icon-controller-volume:before {
+  content: "\e904";
+}
+.icon-ccw:before {
+  content: "\e903";
+}
+.icon-gamepad:before {
+  content: "\f11b";
+}
+.icon-ticket:before {
+  content: "\f145";
+}
